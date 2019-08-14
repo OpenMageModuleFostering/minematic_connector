@@ -1,5 +1,5 @@
 <?php
-class Minematic_Connector_Model_Config_CronDropdown
+class Minematic_Connector_Model_Config_Crondropdown
 {
 
     /**

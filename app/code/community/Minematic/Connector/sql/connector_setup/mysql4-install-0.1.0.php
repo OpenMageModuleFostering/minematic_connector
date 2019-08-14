@@ -31,7 +31,7 @@ try {
   $installer->run($sql);
 
   //Insert default value for cron expression (run every 2 hours)
-  $installer->run("INSERT IGNORE INTO {$this->getTable('core/config_data')} VALUES('" . Minematic_Connector_Model_Config::CRON_EXPRESSION_PATH . "', '0 */2 * * *');");
+  $installer->run("INSERT IGNORE INTO {$this->getTable('core/config_data')} VALUES('" . Minematic_Connector_Model_Config::CRON_EXPRESSION_PATH . "', '10 */5 * * *');");
 
 } catch (Exception $e) {
     Mage::logException($e);

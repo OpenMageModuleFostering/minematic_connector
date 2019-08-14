@@ -1,5 +1,5 @@
 <?php
-class Minematic_Connector_Model_Config_StoreViewsDropdown{
+class Minematic_Connector_Model_Config_Storeviewsdropdown{
 
     /**
      * Drowpdown options with store views
