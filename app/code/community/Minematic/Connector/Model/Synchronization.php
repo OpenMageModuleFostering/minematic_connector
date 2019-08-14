@@ -764,14 +764,14 @@ class Minematic_Connector_Model_Synchronization{
                 ->addFieldToFilter('main_table.store_id', array('eq' => $this->store_id)); //Filter by store Id
             
 
-            //Join "sales_falt_order" table with "sales_flat_order_item" table
+            //Join "sales_flat_order" table with "sales_flat_order_item" table
             $ordersCollection->getSelect()->join( 
-                array('sales_flat_order_item_alias'=> $tbl_prefix.'sales_flat_order_item'), $tbl_prefix.'sales_flat_order_item_alias.order_id = main_table.entity_id', array("product_id" => "sales_flat_order_item_alias.product_id")
+                array('sales_flat_order_item_alias'=> $tbl_prefix.'sales_flat_order_item'), 'sales_flat_order_item_alias.order_id = main_table.entity_id', array("product_id" => "sales_flat_order_item_alias.product_id")
             );
 
             //Join "sales_flat_order" table with "customer_entity" table
             $ordersCollection->getSelect()->join( 
-                array('customer_alias'=> $tbl_prefix.'customer_entity'), $tbl_prefix.'customer_alias.entity_id = main_table.customer_id', array("customer_id" => "main_table.customer_id")
+                array('customer_alias'=> $tbl_prefix.'customer_entity'), 'customer_alias.entity_id = main_table.customer_id', array("customer_id" => "main_table.customer_id")
             );
 
             //Adding filters by date_from
@@ -833,14 +833,14 @@ class Minematic_Connector_Model_Synchronization{
                 ->addFieldToFilter('customer_id', array('gt' => 0))
                 ->addFieldToFilter('main_table.store_id', array('eq' => $this->store_id)); //Filter by store Id
             
-            //Join "sales_falt_order" table with "sales_flat_order_item" table
+            //Join "sales_flat_order" table with "sales_flat_order_item" table
             $paidOrdersCollection->getSelect()->join( 
-                array('sales_flat_order_item_alias'=> $tbl_prefix.'sales_flat_order_item'), $tbl_prefix.'sales_flat_order_item_alias.order_id = main_table.entity_id', array("product_id" => "sales_flat_order_item_alias.product_id")
+                array('sales_flat_order_item_alias'=> $tbl_prefix.'sales_flat_order_item'), 'sales_flat_order_item_alias.order_id = main_table.entity_id', array("product_id" => "sales_flat_order_item_alias.product_id")
             );
 
             //Join "sales_flat_order" table with "customer_entity" table
             $paidOrdersCollection->getSelect()->join( 
-                array('customer_alias'=> $tbl_prefix.'customer_entity'), $tbl_prefix.'customer_alias.entity_id = main_table.customer_id', array("customer_id" => "main_table.customer_id")
+                array('customer_alias'=> $tbl_prefix.'customer_entity'), 'customer_alias.entity_id = main_table.customer_id', array("customer_id" => "main_table.customer_id")
             );
 
             //Adding filters by date_from
@@ -911,12 +911,12 @@ class Minematic_Connector_Model_Synchronization{
         
         //Join "report_event" table with "report_event_types" table
         $eventsCollection->getSelect()->join( 
-            array('report_types_alias'=> $tbl_prefix.'report_event_types'), $tbl_prefix.'report_types_alias.event_type_id = main_table.event_type_id'
+            array('report_types_alias'=> $tbl_prefix.'report_event_types'), 'report_types_alias.event_type_id = main_table.event_type_id'
         );   
 
         //Join "report_event" table with "customer_entity" table
         $eventsCollection->getSelect()->join( 
-            array('customer_alias'=> $tbl_prefix.'customer_entity'), $tbl_prefix.'customer_alias.entity_id = main_table.subject_id'
+            array('customer_alias'=> $tbl_prefix.'customer_entity'), 'customer_alias.entity_id = main_table.subject_id'
         );
 
         //Adding Filters (OR)
