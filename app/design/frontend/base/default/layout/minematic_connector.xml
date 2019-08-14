@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+	<default>
+		<reference name="head">
+        	<block type="core/template" name="header_snippet" as="headerSnippet" template="minematic_connector/header_snippet.phtml"/>
+     	</reference>
+	</default>
+</layout>

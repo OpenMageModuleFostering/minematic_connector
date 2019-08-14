@@ -1,0 +1,139 @@
+<?xml version="1.0" ?>
+<!-- Root node for Magento configuration files -->
+<config>
+    <!-- modules node provides basic information about the module -->
+    <modules>
+        <!-- This node's name has to be the same as module's full name including namespace -->
+        <Minematic_Connector>
+            <!-- Current version of module -->
+            <version>1.0.0</version>
+        </Minematic_Connector>
+    </modules>
+
+    <frontend>
+        <!-- Controller route -->
+        <routers>
+            <connector>
+                <use>standard</use>
+                <args>
+                    <module>Minematic_Connector</module>
+                    <frontName>connector</frontName>
+                </args>
+            </connector>
+        </routers>
+
+        <!-- Layout -->
+        <layout>
+            <updates>
+                    <minematic_connector module="Minematic_Connector">
+                        <file>minematic_connector.xml</file>
+                    </minematic_connector>
+            </updates>
+        </layout>
+    
+    </frontend> 
+
+    <!-- Global Section -->
+    <global>
+        <!-- Models -->
+        <models>
+            <connector>
+                <class>Minematic_Connector_Model</class> <!-- Model class files -->
+                <resourceModel>connector_mysql4</resourceModel> <!--Resource model -->
+            </connector>
+            <connector_mysql4>
+                <class>Minematic_Connector_Model_Mysql4</class>
+                <entities>
+                    <connector>
+                        <table>minematic_config</table>  <!-- Db table name  -->
+                    </connector>
+                </entities>
+            </connector_mysql4>
+        </models>
+
+        <!-- Resources / Needed for installtion/update scirpts-->
+        <resources>  
+            <connector_setup> <!-- Setup directory -->
+                <setup>
+                    <module>Minematic_Connector</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </connector_setup>
+
+            <connector_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </connector_write>
+
+            <connector_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </connector_read>
+        </resources>
+
+        <!-- Helpers -->
+        <helpers>
+            <connector>
+                <class>Minematic_Connector_Helper</class>
+            </connector>
+        </helpers>
+
+        <!-- Blocks -->
+        <blocks>
+            <connector>
+                <class>Minematic_Connector_Block</class>
+            </connector>
+        </blocks>
+
+    </global>
+
+    <!-- Setting up cronjobs -->
+    <crontab>
+        <jobs>
+            <!-- Default config comes from core_config_data, path: "crontab/jobs/minematic_sync_data/schedule/cron_expr" -->
+            <minematic_sync_data>
+                <!-- <schedule><cron_expr>0 */2 * * *</cron_expr></schedule> --> 
+                <run><model>connector/observer::run_sync_process</model></run>
+            </minematic_sync_data>
+        </jobs>
+    </crontab>
+
+    <adminhtml>
+        <acl>
+          <resources>
+            <all>
+              <title>Allow Everything</title>
+            </all>
+            <admin>
+              <children>
+                <system>
+                  <children>
+                    <config>
+                      <children>
+                        <minematic_settings>
+                          <title>Minematic</title>
+                        </minematic_settings>
+                      </children>
+                    </config>
+                  </children>
+                </system>
+              </children>
+            </admin>
+          </resources>
+        </acl>
+      </adminhtml>    
+
+    <!-- Default values form Module -->
+    <default>
+        <minematic_settings>
+            <general>
+                <cron_interval>2</cron_interval> <!-- Default value every 2 hours. If changed, update mysql install script -->
+            </general>
+        </minematic_settings>
+    </default>
+
+</config>

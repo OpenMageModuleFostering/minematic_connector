@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Minematic_Connector</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license>Open Software License (OSL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Minematic Connector collects products, customers and events data for the store and sends it to Minematic data collection API for analysis and marketing.</summary>
+    <description>This module collects information about products, customers and events (e.g. ADD TO CART, PRODUCT PAGE VIEW, ADD TO WISHLIST, SHARE) and transfers the information to Minematic data collection API for data analysis and marketing.</description>
+    <notes>First release version</notes>
+    <authors><author><name>Minematic</name><user>minematic</user><email>magento@minematic.com</email></author></authors>
+    <date>2015-05-26</date>
+    <time>12:50:06</time>
+    <contents><target name="magecommunity"><dir name="Minematic"><dir name="Connector"><dir name="Block"><file name="Connector.php" hash="8735289b0f9388955dda56de863cc7f0"/></dir><dir name="Helper"><file name="Data.php" hash="a008a987b46c28f46bf7de02dc7a5936"/><dir name="push_api"><file name="MinematicClient.php" hash="2466f46c03b4fc352e700c6ff287df46"/><file name=".DS_Store" hash="11d4264a26b39c74a6176b3feb5ddb56"/></dir><file name=".DS_Store" hash="166fc3c278a952701e9d4897bfbec1dc"/></dir><dir name="Model"><dir name="Config"><file name="CronDropdown.php" hash="fc52a230acf46a26e273ce001dc83391"/><file name="StoreViewsDropdown.php" hash="a88bbd250318f758430ab0f4425c72e3"/></dir><file name="Config.php" hash="fde17e756d5ebd6df6040bc874a42c46"/><file name="Observer.php" hash="27495887bfe154b51d9f11d8cd240286"/><file name="Synchronization.php" hash="3c6d6baca4bdd115131a5837bd54965a"/><dir name="System"><dir name="Config"><dir name="Backend"><file name="Cron.php" hash="52e119425813d464474474c15036375f"/><file name=".DS_Store" hash="194577a7e20bdcc7afbb718f502c134c"/></dir><file name=".DS_Store" hash="164f4d8848918d06a0b1de4041fdadd6"/></dir><file name=".DS_Store" hash="1a138f3b020c526173b9b06a9a2717df"/></dir><file name=".DS_Store" hash="245aa1be2b4f14ef749681c504db8590"/></dir><dir name="controllers"><file name="MinematicController.php" hash="d579d4533a39629ede1549d15e728fa6"/><file name=".DS_Store" hash="a1ddf4e9ec2bec74d4ae1ce8b742675d"/></dir><dir name="etc"><file name="config.xml" hash="02c893b821f614e805a68a233cee6ad4"/><file name="system.xml" hash="4e6616f879f2826de2cd99e189faef4c"/><file name=".DS_Store" hash="d5c9ef4cc8915721d89f14aff358e204"/></dir><dir name="sql"><dir name="connector_setup"><file name="mysql4-install-0.1.0.php" hash="6082551b6be34602284903c95beea1c5"/><file name=".DS_Store" hash="194577a7e20bdcc7afbb718f502c134c"/></dir><file name=".DS_Store" hash="e0ff3a55f14b180fe579834f1fd8d0e8"/></dir><file name=".DS_Store" hash="d4537f8cbf61ef83e95726abf22f1d09"/></dir><file name=".DS_Store" hash="326cb448044ba8acb73c993a1cdcb370"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="minematic_connector.xml" hash="ceae04cb1965c10562a4227be9eede40"/></dir><dir name="template"><dir name="minematic_connector"><file name="header_snippet.phtml" hash="1a972999363492611d3096aa1772cc44"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Minematic_Connector.xml" hash="78b1da5a65d9074dce12bc4d51fdb011"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.4.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

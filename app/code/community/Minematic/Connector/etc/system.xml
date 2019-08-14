@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<config>
+  <tabs>
+    <minematic_config translate="label" module="connector">
+      <label>Minematic</label>
+      <sort_order>99999</sort_order>
+    </minematic_config>
+  </tabs>
+  <sections>
+    
+    <minematic_settings translate="label" module="connector" >
+      <label>Settings</label>
+      <tab>minematic_config</tab>
+      <frontend_type>text</frontend_type>
+      <sort_order>9999</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+        <general translate="label">
+          <label>Configurations</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>100</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            
+            <enabled translate="label">
+              <label>Module Enabled</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>10</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Minematic Module Enabled?</comment>
+            </enabled>
+
+            <clientid translate="label">
+              <label>Minematic Client ID</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>20</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Client Id. You can find this in <![CDATA[<a href="https://www.minematic.com/app/" target="_blank">Minematic</a>]]> web app.</comment>
+            </clientid>
+
+            <apikey translate="label">
+              <label>Minematic API Key</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>API Key. You can find this in <![CDATA[<a href="https://www.minematic.com/app/" target="_blank">Minematic</a>]]> web app.</comment>
+            </apikey>
+
+            <javascript_code translate="label">
+              <label>Minematic Javascript Code</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>33</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Minematic Javascript Code. You can find this in <![CDATA[<a href="https://www.minematic.com/app/" target="_blank">Minematic</a>]]> web app.</comment>
+            </javascript_code>
+
+            <!-- Dropdown options to run module scheduled tasks -->
+            <cron_interval translate="label">
+                <label>Cron Interval</label>
+                <frontend_type>select</frontend_type>
+                <source_model>connector/config_crondropdown</source_model>
+                <backend_model>connector/system_config_backend_cron</backend_model> <!-- Save cron expression in core_config_data -->
+                <sort_order>35</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+                <comment>Select the time interval you wish the module to run the scheduled tasks</comment>
+            </cron_interval>
+
+            <!-- Additional Product Fields Input Text -->
+            <product_fields translate="label">
+              <label>Optional Product Fields</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>40</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Insert additional product fields that you want to send to Minematic. Separate fields by commas (,) </comment>
+            </product_fields>
+
+            <!-- Additional Customer Fields Input Text -->
+            <customer_fields translate="label">
+              <label>Optional Customer Fields</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>50</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Insert additional customer fields that you want to send to Minematic. Separate fields by commas (,) </comment>
+            </customer_fields>
+
+            <!-- Additional Event Fields Input Text -->
+            <event_fields translate="label">
+              <label>Optional Event Fields</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>60</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Insert additional event fields that you want to send to Minematic. Separate fields by commas (,) </comment>
+            </event_fields>
+
+            <!-- Dropdown option with store views -->
+            <store_view translate="label">
+                <label>Store View</label>
+                <frontend_type>select</frontend_type>
+                <source_model>connector/config_storeviewsdropdown</source_model>
+                <sort_order>70</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+                <comment>Select your store view</comment>
+            </store_view>
+
+          </fields>
+        </general>
+      </groups>
+    </minematic_settings>
+  </sections>
+</config>
