@@ -173,10 +173,10 @@ class Minematic_Connector_Model_Synchronization{
                 $conn = $coreResource->getConnection('core_read');
 
                 //Preparing query
-                $sql = 'SELECT count(distinct entity_id) count, Month(`created_at`) as month, Year(`created_at`) as year
+                $sql = 'SELECT count(distinct entity_id) count, Month(`updated_at`) as month, Year(`updated_at`) as year
                         FROM '.$cpe_table .
-                        ' GROUP BY Month(`created_at`), Year(created_at)
-                        ORDER BY created_at ASC';
+                        ' GROUP BY Month(`updated_at`), Year(updated_at)
+                        ORDER BY updated_at ASC';
                 
                 //Feth all items                 
                 $_products = $conn->fetchAll($sql);
@@ -210,10 +210,10 @@ class Minematic_Connector_Model_Synchronization{
                 $conn = $coreResource->getConnection('core_read');
 
                 //Preparing query
-                $sql = 'SELECT count(distinct entity_id) count, Month(`created_at`) as month, Year(`created_at`) as year
+                $sql = 'SELECT count(distinct entity_id) count, Month(`updated_at`) as month, Year(`updated_at`) as year
                         FROM '.$ce_table .
-                        ' GROUP BY Month(`created_at`), Year(created_at)
-                        ORDER BY created_at ASC';
+                        ' GROUP BY Month(`updated_at`), Year(updated_at)
+                        ORDER BY updated_at ASC';
                 
                 //Fetch data                    
                 $_customers = $conn->fetchAll($sql);
@@ -757,7 +757,7 @@ class Minematic_Connector_Model_Synchronization{
 
             //Get all ORDERS where status is different from "canceled" and "customer_id" field is set
             $ordersCollection = Mage::getModel('sales/order')->getCollection()
-                ->addFieldToSelect('updated_at')
+                ->addFieldToSelect('created_at')
                 ->addAttributeToFilter('status', array('nin' => array('canceled','complete')))
                 ->addFieldToFilter('product_id', array('gt' => 0))
                 ->addFieldToFilter('customer_id', array('gt' => 0))
@@ -797,7 +797,7 @@ class Minematic_Connector_Model_Synchronization{
                         'type'     => "ORDER",
                         'user_id'  => $order->getCustomerId(),
                         'item_id'  => $order->getProductId(),
-                        'datetime' => strtotime($order->getUpdatedAt()),
+                        'datetime' => strtotime($order->getCreatedAt()),
                     );
 
                     //Adding orders
@@ -827,7 +827,7 @@ class Minematic_Connector_Model_Synchronization{
 
             //Get all PAID orders where status is "complete" and "customer_id" field is set
             $paidOrdersCollection = Mage::getModel('sales/order')->getCollection()
-                ->addFieldToSelect('updated_at')
+                ->addFieldToSelect('created_at')
                 ->addFieldToFilter('status', array('eq' => 'complete'))
                 ->addFieldToFilter('product_id', array('gt' => 0))
                 ->addFieldToFilter('customer_id', array('gt' => 0))
@@ -866,7 +866,7 @@ class Minematic_Connector_Model_Synchronization{
                         'type'     => "PAID",
                         'user_id'  => $paid_order->getCustomerId(),
                         'item_id'  => $paid_order->getProductId(),
-                        'datetime' => strtotime($paid_order->getUpdatedAt()),
+                        'datetime' => strtotime($paid_order->getCreatedAt()),
                     );
 
                     //Adding paid orders
