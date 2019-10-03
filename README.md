@@ -1,3 +1,5 @@
+
+
 ## Original Package Description
 
 Minematic Connector collects products, customers and events data for the store and sends it to Minematic data collection API for analysis and marketing.

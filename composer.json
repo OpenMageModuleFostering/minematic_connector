@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/Minematic_Connector",
+    "name": "openmage-module-fostering\/minematic_connector",
     "type": "magento-module",
-    "license": "Open-Software-License-(OSL)",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "Minematic Connector collects products, customers and events data for the store and sends it to Minematic data collection API for analysis and marketing.",
     "authors": [
